@@ -9,6 +9,9 @@ import { PlayerPickerComponent } from './module/step/player-picker/player-picker
 import { WordDisplayComponent } from './module/step/word-display/word-display.component';
 import { EliminationComponent } from './module/step/elimination/elimination.component';
 import { TitleComponent } from './module/step/title/title.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { RulesComponent } from './module/step/title/rules/rules.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,15 @@ import { TitleComponent } from './module/step/title/title.component';
     PlayerPickerComponent,
     WordDisplayComponent,
     EliminationComponent,
-    TitleComponent
+    TitleComponent,
+    RulesComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [MainComponent]
