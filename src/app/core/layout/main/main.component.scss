@@ -1,0 +1,31 @@
+@import "spy-variables";
+
+header {
+  height: 74px;
+}
+
+footer {
+  height: 32px;
+}
+
+footer, header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $blue;
+  background-color: #8ee4af;
+  background-image: radial-gradient(#5cdb95 1px, #8ee4af 1px);
+  background-size: 20px 20px;
+}
+
+.main {
+  height: calc(100% - 32px - 74px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0 12px;
+
+  .content {
+    max-width: 644px;
+    margin: 0 auto;
+  }
+}

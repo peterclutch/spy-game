@@ -1,0 +1,25 @@
+<spy-title
+  [hidden]="currentStep !== GameStep.Title"
+  (nextStepEmitter)="nextPage()"
+></spy-title>
+
+<spy-player-picker
+  [hidden]="currentStep !== GameStep.PlayerPicker"
+  (nextStepEmitter)="initGame($event)"
+></spy-player-picker>
+
+<spy-word-display
+  [hidden]="currentStep !== GameStep.WordDisplay"
+  [players]="players"
+  [spy]="spy"
+  [words]="words"
+  (nextStepEmitter)="nextPage()"
+></spy-word-display>
+
+<spy-elimination
+  [hidden]="currentStep !== GameStep.Elimination"
+  [players]="players"
+  [spy]="spy"
+  (newGameEmitter)="newGame()"
+>
+</spy-elimination>
