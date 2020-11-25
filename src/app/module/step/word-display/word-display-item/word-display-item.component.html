@@ -1,0 +1,10 @@
+<div class="container">
+  <h2>
+    <span class="name">{{ player }}</span> it is your turn!
+  </h2>
+
+  <div class="word-container">
+    <div *ngIf="show === true" class="word">{{ words[spy ? 1 : 0] }}</div>
+    <div *ngIf="show !== true" class="show" (click)="showWord()">Touch here to display your word</div>
+  </div>
+</div>

@@ -13,9 +13,9 @@ export class PlayerPickerComponent implements OnInit {
 
   @Output() nextStepEmitter = new EventEmitter<string[]>();
 
-  private static getPlayerFormGroup(): FormGroup {
+  private static getPlayerFormGroup(name?: string): FormGroup {
     return new FormGroup({
-      player: new FormControl('', [
+      player: new FormControl(name || '', [
         Validators.required,
         Validators.minLength(3),
         RxwebValidators.unique()
@@ -26,9 +26,9 @@ export class PlayerPickerComponent implements OnInit {
   ngOnInit(): void {
     this.playerFormArray = new FormArray(
       [
-        PlayerPickerComponent.getPlayerFormGroup(),
-        PlayerPickerComponent.getPlayerFormGroup(),
-        PlayerPickerComponent.getPlayerFormGroup()
+        PlayerPickerComponent.getPlayerFormGroup('lol'),
+        PlayerPickerComponent.getPlayerFormGroup('rofl'),
+        PlayerPickerComponent.getPlayerFormGroup('lmao')
       ],
       [Validators.minLength(3)]
     );

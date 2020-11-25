@@ -15,6 +15,7 @@ import { RulesComponent } from './module/step/title/rules/rules.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+import { WordDisplayItemComponent } from './module/step/word-display/word-display-item/word-display-item.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
     WordDisplayComponent,
     EliminationComponent,
     TitleComponent,
-    RulesComponent
+    RulesComponent,
+    WordDisplayItemComponent
   ],
   imports: [
     BrowserModule,
