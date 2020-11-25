@@ -2,6 +2,10 @@
 
 header {
   height: 74px;
+
+  h1 {
+    font-size: min(32px, 9vw);
+  }
 }
 
 footer {
@@ -22,10 +26,12 @@ footer, header {
   height: calc(100% - 32px - 74px);
   overflow-x: hidden;
   overflow-y: auto;
-  margin: 0 24px;
+  box-sizing: border-box;
+  padding-bottom: 24px;
 
   .content {
     max-width: 644px;
     margin: 0 auto;
+    padding: 0 24px;
   }
 }

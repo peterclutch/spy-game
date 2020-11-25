@@ -1,1 +1,35 @@
-<p>player-selection works!</p>
+<div class="container">
+  <h2>Participants</h2>
+
+  <form [formGroup]="playerFormGroup">
+    <div class="player-container">
+      <div
+        [formGroup]="playerForm"
+        *ngFor="let playerForm of playerFormArray.controls; let index = index"
+      >
+        <mat-form-field>
+          <mat-label>Participant no. {{ index + 1 }}</mat-label>
+          <input matInput placeholder="Name" formControlName="player">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="link-nav">
+      <div class="add-remove">
+        <button mat-button class="small-btn" (click)="addPlayer(playerFormArray)">💃 Add player</button>
+        <button
+          mat-button
+          class="small-btn"
+          (click)="removePlayer(playerFormArray)"
+          [disabled]="playerFormArray.length < 4"
+        >☠️ Remove player</button>
+      </div>
+      <button
+        mat-button
+        class="large-btn"
+        (click)="submit()"
+        [disabled]="playerFormGroup.invalid"
+      >🏁 Start</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,30 @@
+.link-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .add-remove {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  button {
+    margin-top: 24px;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  width: 100%;
+
+  mat-form-field {
+    width: 100%;
+  }
+}

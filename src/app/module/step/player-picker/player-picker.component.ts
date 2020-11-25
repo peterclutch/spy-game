@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
   selector: 'spy-player-picker',
@@ -12,12 +13,24 @@ export class PlayerPickerComponent implements OnInit {
 
   @Output() nextStepEmitter = new EventEmitter<string[]>();
 
+  private static getPlayerFormGroup(): FormGroup {
+    return new FormGroup({
+      player: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        RxwebValidators.unique()
+      ])
+    });
+  }
+
   ngOnInit(): void {
     this.playerFormArray = new FormArray(
-      [new FormGroup({
-        player: new FormControl('', [Validators.required])
-      })],
-      Validators.minLength(3)
+      [
+        PlayerPickerComponent.getPlayerFormGroup(),
+        PlayerPickerComponent.getPlayerFormGroup(),
+        PlayerPickerComponent.getPlayerFormGroup()
+      ],
+      [Validators.minLength(3)]
     );
 
     this.playerFormGroup = new FormGroup({
@@ -26,15 +39,11 @@ export class PlayerPickerComponent implements OnInit {
   }
 
   addPlayer(formArray: FormArray) {
-    formArray.push(
-      new FormGroup({
-        player: new FormControl('', [Validators.required])
-      })
-    );
+    formArray.push(PlayerPickerComponent.getPlayerFormGroup());
   }
 
   removePlayer(formArray: FormArray) {
-    if (formArray.length > 1) {
+    if (formArray.length > 3) {
       formArray.removeAt(formArray.length - 1);
     }
   }

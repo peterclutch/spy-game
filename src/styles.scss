@@ -19,3 +19,23 @@ html, body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Itim', cursive;
 }
+
+h1 {
+  color: $light;
+  text-shadow: 2px 2px 0 $teal;
+}
+
+button {
+  font-family: 'Itim', cursive !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  padding: 6px 24px !important;
+}
+
+.small-btn {
+  font-size: 18px !important;
+}
+
+.large-btn {
+  font-size: 24px !important;
+}
