@@ -15,13 +15,13 @@ export class WordDisplayComponent {
   playerViewIndex = 0;
 
   next(): void {
-    if (this.showNext()) {
+    if (this.hasNext()) {
       this.playerViewIndex++;
     }
   }
 
   previous(): void {
-    if (this.showPrevious()) {
+    if (this.hasPrevious()) {
       this.playerViewIndex--;
     }
   }
@@ -31,16 +31,12 @@ export class WordDisplayComponent {
     this.playerViewIndex = 0;
   }
 
-  showNext(): boolean {
+  hasNext(): boolean {
     return this.playerViewIndex < this.players?.length - 1;
   }
 
-  showPrevious(): boolean {
+  hasPrevious(): boolean {
     return this.playerViewIndex > 0;
-  }
-
-  showBegin(): boolean {
-    return this.playerViewIndex === this.players?.length - 1;
   }
 
 }

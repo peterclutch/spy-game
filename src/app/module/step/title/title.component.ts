@@ -10,9 +10,7 @@ import { RulesComponent } from './rules/rules.component';
 export class TitleComponent{
   @Output() nextStepEmitter = new EventEmitter<string[]>();
 
-  constructor(
-    public dialog: MatDialog
-  ) {
+  constructor(public dialog: MatDialog) {
   }
 
   begin() {

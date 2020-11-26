@@ -17,8 +17,8 @@
   </div>
 
   <div class="navigation">
-    <button mat-button *ngIf="showPrevious()" (click)="previous()">Previous</button>
-    <button mat-button *ngIf="showNext()" (click)="next()">Next</button>
-    <button mat-button *ngIf="showBegin()" (click)="begin()">🏁 Continue</button>
+    <button mat-button [disabled]="!hasPrevious()" (click)="previous()">Previous</button>
+    <button mat-button *ngIf="hasNext()" (click)="next()">Next</button>
+    <button mat-button *ngIf="!hasNext()" (click)="begin()">🎯 Continue</button>
   </div>
 </div>

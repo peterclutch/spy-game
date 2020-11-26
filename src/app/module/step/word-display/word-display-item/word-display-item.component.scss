@@ -16,20 +16,104 @@
 .word-container {
   text-align: center;
   margin-top: 24px;
-  font-size: 20px;
-  font-family: 'Itim', cursive;
 
   > div {
-    height: 32px;
+    min-height: 50px;
     display: flex;
     align-items: center;
   }
 
   .word {
-    font-size: 32px;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 7.5px 0;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: $blue;
+
+    span {
+      animation: horizontal-bounce 2s ease infinite;
+    }
   }
 
   .show {
+    font-family: 'Itim', cursive;
+    font-size: 20px;
+    cursor: pointer;
     border-bottom: $teal solid 3px;
+    animation: hover-animation 2s ease infinite;
+    -webkit-animation: hover-animation 2s ease infinite;
+    -moz-animation: hover-animation 2s ease infinite;
+    -o-animation: hover-animation 2s ease infinite;
+  }
+}
+
+@keyframes horizontal-bounce {
+  0%, 100% {
+    margin: 0 0;
+  }
+  50% {
+    margin: 0 6px;
+  }
+}
+
+@keyframes hover-animation {
+  0%, 100% {
+    margin-top: 6px;
+    padding-bottom: 0;
+    margin-bottom: 6px;
+    border-width: 3px;
+  }
+  50% {
+    margin-top: 0;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+    border-width: 0;
+  }
+}
+
+@-webkit-keyframes hover-animation {
+  0%, 100% {
+    margin-top: 6px;
+    padding-bottom: 0;
+    margin-bottom: 6px;
+    border-width: 3px;
+  }
+  50% {
+    margin-top: 0;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+    border-width: 0;
+  }
+}
+
+@-moz-keyframes hover-animation {
+  0%, 100% {
+    margin-top: 6px;
+    padding-bottom: 0;
+    margin-bottom: 6px;
+    border-width: 3px;
+  }
+  50% {
+    margin-top: 0;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+    border-width: 0;
+  }
+}
+
+@-o-keyframes hover-animation {
+  0%, 100% {
+    margin-top: 6px;
+    padding-bottom: 0;
+    margin-bottom: 6px;
+    border-width: 3px;
+  }
+  50% {
+    margin-top: 0;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+    border-width: 0;
   }
 }

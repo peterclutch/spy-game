@@ -8,11 +8,12 @@
   .navigation {
     margin-top: 20vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
+    flex-wrap: wrap;
 
     button {
-      margin: 0 24px;
+      flex: 1 1 auto;
     }
   }
 }
@@ -28,7 +29,10 @@
   &__item {
     color: $teal;
     font-weight: 600;
-    padding: 6px;
+    padding: 0 6px;
+    flex: 1 1 auto;
+    text-align: center;
+    flex-wrap: wrap;
 
     .active {
       color: $blue;
