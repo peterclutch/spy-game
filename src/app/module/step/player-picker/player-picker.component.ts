@@ -26,9 +26,9 @@ export class PlayerPickerComponent implements OnInit {
   ngOnInit(): void {
     this.playerFormArray = new FormArray(
       [
-        PlayerPickerComponent.getPlayerFormGroup('lol'),
-        PlayerPickerComponent.getPlayerFormGroup('rofl'),
-        PlayerPickerComponent.getPlayerFormGroup('lmao')
+        PlayerPickerComponent.getPlayerFormGroup(),
+        PlayerPickerComponent.getPlayerFormGroup(),
+        PlayerPickerComponent.getPlayerFormGroup()
       ],
       [Validators.minLength(3)]
     );

@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { WordDisplayItemComponent } from './module/step/word-display/word-display-item/word-display-item.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { WordDisplayItemComponent } from './module/step/word-display/word-displa
     MatDialogModule,
     MatInputModule,
     ReactiveFormsModule,
-    RxReactiveFormsModule
+    RxReactiveFormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [MainComponent]

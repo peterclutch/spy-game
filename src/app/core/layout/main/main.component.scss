@@ -11,6 +11,26 @@ header {
 
 footer {
   height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > * {
+    margin: 0 6px;
+  }
+
+  div {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  a {
+    color: $blue;
+  }
+
+  a:hover {
+    color: $teal;
+  }
 }
 
 footer, header {
