@@ -1,1 +1,27 @@
-<p>elimination works!</p>
+<div class="container">
+  <h2>Elimination Phase</h2>
+
+  <div *ngIf="currentStep === EliminationStep.InProgress">
+    Tap the name of the eliminated participant to see if they are the spy 🙈🙈
+  </div>
+
+  <div class="reveal" *ngIf="currentStep !== EliminationStep.InProgress">
+    <div *ngIf="currentStep === EliminationStep.SpyRevealed">The spy was eliminated!</div>
+    <div *ngIf="currentStep === EliminationStep.SpyWon">The spy won!</div>
+
+    <button mat-button (click)="newGame()">
+      🔥 Play again
+    </button>
+
+  </div>
+
+  <div class="players">
+    <div class="player" *ngFor="let playerStatus of playerStatusList">
+      <div (click)="reveal(playerStatus)">
+        <div class="player__name" [class.eliminated]="playerStatus[1]" [class.spy]="playerStatus[0] === spy">
+          <span>{{ playerStatus[0] }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

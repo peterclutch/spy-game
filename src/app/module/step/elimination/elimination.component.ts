@@ -1,5 +1,11 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
+export enum EliminationStep {
+  InProgress = 0,
+  SpyRevealed = 1,
+  SpyWon = 2
+}
+
 @Component({
   selector: 'spy-elimination',
   templateUrl: './elimination.component.html',
@@ -11,18 +17,37 @@ export class EliminationComponent implements OnChanges {
 
   @Output() newGameEmitter = new EventEmitter<void>();
 
-  playerStatusList: [string, boolean][]; // List[playerName, isDead]
+  playerStatusList: [string, boolean][]; // List[playerName, isEliminated]
+  currentStep = EliminationStep.InProgress;
+  EliminationStep = EliminationStep;
 
-  kill(playerStatus: [string, boolean]): void {
-    playerStatus[1] = false;
+  reveal(playerStatus: [string, boolean]): void {
+    if (this.currentStep !== EliminationStep.InProgress) {
+      return;
+    }
+
+    playerStatus[1] = true;
+
+    if (playerStatus[0] === this.spy) {
+      this.currentStep = EliminationStep.SpyRevealed;
+    } else if (this.playerStatusList.filter(player => player[1] === false).length <= 2) {
+      this.currentStep = EliminationStep.SpyWon;
+      this.revealSpy();
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.playerStatusList = changes.players?.currentValue.map(player => [player, true]);
+    this.playerStatusList = changes.players?.currentValue.map(player => [player, false]);
+    this.currentStep = EliminationStep.InProgress;
   }
 
-  reset(): void {
+  newGame(): void {
     this.newGameEmitter.emit();
+  }
+
+  private revealSpy() {
+    const spyPlayer = this.playerStatusList.filter(player => player[0] === this.spy)[0];
+    spyPlayer[1] = true;
   }
 
 }
