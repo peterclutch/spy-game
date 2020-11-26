@@ -17,6 +17,8 @@ import { MatInputModule } from '@angular/material/input';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { WordDisplayItemComponent } from './module/step/word-display/word-display-item/word-display-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { GoogleSheetsDbService } from 'ng-google-sheets-db';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,8 +41,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ReactiveFormsModule,
     RxReactiveFormsModule,
     FontAwesomeModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [GoogleSheetsDbService],
   bootstrap: [MainComponent]
 })
 export class AppModule { }

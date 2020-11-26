@@ -17,7 +17,7 @@ export class PlayerPickerComponent implements OnInit {
     return new FormGroup({
       player: new FormControl(name || '', [
         Validators.required,
-        Validators.minLength(3),
+        Validators.minLength(2),
         RxwebValidators.unique()
       ])
     });
