@@ -6,7 +6,6 @@ export class WordService {
 
   static readonly offlineWords: [string, string][] = [
     ['Orange Juice', 'Apple Juice'],
-    ['Library', 'Book Store'],
     ['Girlfriend', 'Ex-Girlfriend'],
     ['House', 'Apartment'],
     ['Pop Music', 'Rock Music'],

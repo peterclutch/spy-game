@@ -19,6 +19,8 @@ import { WordDisplayItemComponent } from './module/step/word-display/word-displa
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { GoogleSheetsDbService } from 'ng-google-sheets-db';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     RxReactiveFormsModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [GoogleSheetsDbService],
   bootstrap: [MainComponent]
