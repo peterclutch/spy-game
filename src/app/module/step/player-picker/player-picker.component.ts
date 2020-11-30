@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { RulesComponent } from '../title/rules/rules.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'spy-player-picker',
@@ -21,6 +23,9 @@ export class PlayerPickerComponent implements OnInit {
         RxwebValidators.unique()
       ])
     });
+  }
+
+  constructor(public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -51,6 +56,10 @@ export class PlayerPickerComponent implements OnInit {
   submit(): void {
     const players = this.playerFormGroup.value.players.map(o => o.player);
     this.nextStepEmitter.emit(players);
+  }
+
+  openRules(): void {
+    this.dialog.open(RulesComponent);
   }
 
 }
