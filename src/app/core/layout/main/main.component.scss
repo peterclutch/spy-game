@@ -11,9 +11,7 @@ header {
 
 footer {
   height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 12px 0;
 
   > * {
     margin: 0 6px;
@@ -44,7 +42,7 @@ footer, header {
 }
 
 .main {
-  height: calc(100% - 32px - 74px);
+  height: calc(100% - 56px - 74px);
   overflow-x: hidden;
   overflow-y: auto;
   box-sizing: border-box;
